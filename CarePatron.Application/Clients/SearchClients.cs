@@ -58,8 +58,8 @@ namespace CarePatron.ClientManagement.Application
             public required string Id { get; init; }
             public required string FirstName { get; init; }
             public required string LastName { get; init; }
-            public required string Email { get; init; }
-            public required string PhoneNumber { get; init; }
+            public string? Email { get; init; }
+            public string? PhoneNumber { get; init; }
             public bool IsVIP { get; init; }
         }
     }

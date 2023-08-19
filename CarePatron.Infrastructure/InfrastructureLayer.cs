@@ -12,7 +12,9 @@ namespace CarePatron.Infrastructure
     {
         public static void AddInfrastructureLayer(this IServiceCollection services)
         {
+            services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IDocumentService, DocumentService>();
+            services.AddScoped<IDomainEventPublisher, DomainEventPublisher>();
         }
     }
 }

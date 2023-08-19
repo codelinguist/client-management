@@ -45,11 +45,11 @@ namespace CarePatron.Domain.Model.ClientManagement
             }
             if (IsVIP)
             {
-                return null;
+                return null!;
             }
 
             IsVIP = true;
-            return new ClientVIPStatusChanged { Id = Id, IsVIP = true };
+            return new ClientVIPStatusChanged { Id = Id, IsVIP = IsVIP };
         }
 
         public ClientVIPStatusChanged RemoveVIP()
@@ -64,7 +64,7 @@ namespace CarePatron.Domain.Model.ClientManagement
             }
 
             IsVIP = false;
-            return new ClientVIPStatusChanged { Id = Id, IsVIP = true };
+            return new ClientVIPStatusChanged { Id = Id, IsVIP = IsVIP };
         }
 
 

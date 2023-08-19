@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CarePatron.Domain\CarePatron.Domain.csproj" />
+    <ProjectReference Include="..\CarePatron.Infrastructure\CarePatron.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
