@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "ba692e9e-e026-4600-9c42-000e99b80721",
+		"name": "CarePatron Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Ralph Jourdan\",\r\n  \"lastName\": \"Barro\",\r\n  \"contactInformation\": {\r\n    \"email\": \"codelinguist@gmail.com\",\r\n    \"phoneNumber\": \"09566826368\"\r\n  },\r\n  \"isVIP\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5044/api/Clients/Add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5044",
+					"path": [
+						"api",
+						"Clients",
+						"Add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditClient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\":\"4450c4aa-6c14-47b6-9de4-6509bd358f97\",\r\n  \"firstName\": \"Ralph Jourdan [Edited]\",\r\n  \"lastName\": \"Barro\",\r\n  \"contactInformation\": {\r\n    \"email\": \"codelinguist@gmail.com\",\r\n    \"phoneNumber\": \"09566826368\"\r\n  },\r\n  \"isVIP\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5044/api/Clients/Edit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5044",
+					"path": [
+						"api",
+						"Clients",
+						"Edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchClient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5044/api/Clients/Search?searchTerm=ralph",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5044",
+					"path": [
+						"api",
+						"Clients",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "searchTerm",
+							"value": "ralph"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
