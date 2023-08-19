@@ -13,7 +13,7 @@ namespace CarePatron.ClientManagement.Application
     {
         public record Query : IRequest<Response>
         {
-            public required string SearchTerm { get; init; }
+            public string? SearchTerm { get; init; }
             //TODO: Implement PageSize and PageIndex Parameters.
         }
 
@@ -34,7 +34,7 @@ namespace CarePatron.ClientManagement.Application
 
             public async Task<Response> Handle(Query request, CancellationToken cancellationToken)
             {
-                var searchTermNormalized = request.SearchTerm.ToLower();
+                var searchTermNormalized = request.SearchTerm?.ToLower()??string.Empty;
                 var clientsVm = await dataContext.Clients.Where(i=>
                         i.FirstName.ToLower().Contains(searchTermNormalized)
                         || i.LastName.ToLower().Contains(searchTermNormalized)
