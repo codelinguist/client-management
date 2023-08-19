@@ -14,9 +14,14 @@ namespace CarePatron.ClientManagement.Application
         {
             public required string FirstName { get; init; }
             public required string LastName { get; init; }
-            public required string Email { get; init; }
-            public required string PhoneNumber { get; set; }
+            public required ContactInformation ContactInformation { get; set; }
             public required bool IsVIP { get; set; }
+        }
+
+        public record ContactInformationDto
+        {
+            public string? Email { get; init; }
+            public string? PhoneNumber { get; set; }
         }
 
         public record Response
@@ -42,14 +47,14 @@ namespace CarePatron.ClientManagement.Application
                 {
                     //Validate the data. Otherwise, domain assertions are going to throw any invalid data.
 
-                    client = ClientFactory.CreateNewVIPClient(request.FirstName, request.LastName, request.Email, request.PhoneNumber);
+                    client = ClientFactory.CreateNewVIPClient(request.FirstName, request.LastName, request.ContactInformation);
 
                 }
                 else
                 {
                     //Validate the data. Otherwise, domain assertions are going to throw any invalid data.
 
-                    client = ClientFactory.CreateNewClient(request.FirstName, request.LastName, request.Email, request.PhoneNumber);
+                    client = ClientFactory.CreateNewClient(request.FirstName, request.LastName, request.ContactInformation);
                 }
 
                 await repository.Create(client);

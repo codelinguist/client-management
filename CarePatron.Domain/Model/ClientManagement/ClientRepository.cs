@@ -23,7 +23,7 @@ namespace CarePatron.Domain.Model.ClientManagement
 
         public async Task Create(Client client)
         {
-            dataContext.Clients.Update(client);
+            dataContext.Clients.Add(client);
             await dataContext.SaveChangesAsync();
         }
 

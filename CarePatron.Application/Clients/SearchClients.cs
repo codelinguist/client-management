@@ -44,8 +44,8 @@ namespace CarePatron.ClientManagement.Application
                         Id = i.Id,
                         FirstName = i.FirstName,
                         LastName = i.LastName,
-                        Email = i.Email,
-                        PhoneNumber = i.PhoneNumber,
+                        Email = i.ContactInformation.Email,
+                        PhoneNumber = i.ContactInformation.PhoneNumber,
                         IsVIP=i.IsVIP
                     }).ToListAsync();
 

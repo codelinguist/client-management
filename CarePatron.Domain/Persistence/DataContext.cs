@@ -23,6 +23,7 @@ namespace CarePatron.Domain.Persistence
             base.OnModelCreating(builder);
 
             builder.Entity<Client>().HasKey(x => x.Id);
+            builder.Entity<Client>().OwnsOne(x => x.ContactInformation);
         }
     }
 }

@@ -15,10 +15,10 @@ namespace CarePatron.Data
         public void Seed()
         {
             var clients = new List<Client>() {
-                ClientFactory.CreateNewClient("John", "Smith", "john@gmail.com", "+18202820232"),
-                ClientFactory.CreateNewVIPClient("John", "Stevens", "vip@gmail.com", "+18222920236"),
-                ClientFactory.CreateNewClient("Steven", "Smith", "vip@gmail.com", "+18222920236"),
-                ClientFactory.CreateNewVIPClient("Ziggy", "Hedgehog", "thehedgehog@gmail.com", "+18222426236"),
+                ClientFactory.CreateNewClient("John", "Smith", new ContactInformation( "john@gmail.com", "+18202820232")),
+                ClientFactory.CreateNewVIPClient("John", "Stevens", new ContactInformation("vip@gmail.com", "+18222920236")),
+                ClientFactory.CreateNewClient("Steven", "Smith", new ContactInformation("vip@gmail.com", "+18222920236")),
+                ClientFactory.CreateNewVIPClient("Ziggy", "Hedgehog", new ContactInformation("thehedgehog@gmail.com", "+18222426236")),
             };
             dataContext.AddRange(clients);
 

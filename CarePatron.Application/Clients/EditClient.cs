@@ -15,9 +15,16 @@ namespace CarePatron.ClientManagement.Application
             public required string Id { get; set; }
             public required string FirstName { get; init; }
             public required string LastName { get; init; }
-            public required string Email { get; init; }
-            public required string PhoneNumber { get; set; }
+            public required ContactInformation ContactInformation { get; set; }
         }
+
+        //TODO: Since this is also defined in AddClient, we may move this to a 'Common' namespace to be reusable. 
+        public record ContactInformationDto
+        {
+            public string? Email { get; init; }
+            public string? PhoneNumber { get; set; }
+        }
+
 
         public record Response
         {
@@ -40,9 +47,9 @@ namespace CarePatron.ClientManagement.Application
 
                 Client client = await repository.GetById(request.Id);
 
-                client.EditInformation(request.FirstName, request.LastName, request.Email, request.PhoneNumber);
+                client.EditInformation(request.FirstName, request.LastName, request.ContactInformation);
 
-                await repository.Create(client);
+                await repository.Update(client);
                 return new Response { Success = true };
             }
         }

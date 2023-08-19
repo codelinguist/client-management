@@ -23,5 +23,21 @@ namespace CarePatron.API.Controllers
             var response = await mediator.Send(query);
             return Ok(response);
         }
+
+
+        [HttpPost("Add")]
+        public async Task<IActionResult> AddClient([FromBody] AddClient.Command query)
+        {
+            var response = await mediator.Send(query);
+            return Ok(response);
+        }
+
+
+        [HttpPut("Edit")]
+        public async Task<IActionResult> EditClient([FromBody] EditClient.Command query)
+        {
+            var response = await mediator.Send(query);
+            return Ok(response);
+        }
     }
 }
