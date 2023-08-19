@@ -1,12 +1,16 @@
-﻿using api.Data;
-using api.Repositories;
+﻿using CarePatron.Application;
+using CarePatron.Data;
+using CarePatron.Domain;
+using CarePatron.Domain.Persistence;
+using CarePatron.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 
-// Add services to the container.
+// Add services to the container.   
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
@@ -23,13 +27,17 @@ services.AddCors(options =>
         .Build());
 });
 
+
 // ioc
 services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase(databaseName: "Test"));
 
 services.AddScoped<DataSeeder>();
-services.AddScoped<IClientRepository, ClientRepository>();
-services.AddScoped<IEmailRepository, EmailRepository>();
-services.AddScoped<IDocumentRepository, DocumentRepository>();
+
+/** Initialize the Layers **/
+services.AddDomainLayer();
+services.AddInfrastructureLayer();
+services.AddApplicationLayer();
+
 
 var app = builder.Build();
 
@@ -41,11 +49,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/clients", async (IClientRepository clientRepository) =>
-{
-    return await clientRepository.Get();
-})
-.WithName("get clients");
+app.MapControllers();
 
 app.UseCors();
 

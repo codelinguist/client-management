@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Calendar\" />
+    <Folder Include="AutomatedWorkflows\" />
+    <Folder Include="Calls\" />
+    <Folder Include="Billing\" />
+    <Folder Include="Team\" />
+    <Folder Include="OnlineScheduling\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarePatron.Domain\CarePatron.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

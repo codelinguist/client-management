@@ -1,9 +1,15 @@
-﻿using api.Models;
+﻿
+using CarePatron.Domain.Model.ClientManagement;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Data
+namespace CarePatron.Domain.Persistence
 {
-    public class DataContext : DbContext
+    public interface IDataContext
+    {
+        DbSet<Client> Clients { get; set; }
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    }
+    public class DataContext : DbContext, IDataContext
     {
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)

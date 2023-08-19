@@ -1,18 +1,44 @@
-﻿using api.Data;
-using api.Models;
+﻿using CarePatron.Domain.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Repositories
+namespace CarePatron.Domain.Model.ClientManagement
 {
     public interface IClientRepository
     {
-        Task<Client[]> Get();
+
+        Task<Client> GetById(string id);
         Task Create(Client client);
         Task Update(Client client);
+
     }
 
     public class ClientRepository : IClientRepository
     {
+        private readonly IDataContext dataContext;
+
+        public ClientRepository(IDataContext dataContext)
+        {
+            this.dataContext = dataContext;
+        }
+
+        public async Task Create(Client client)
+        {
+            dataContext.Clients.Update(client);
+            await dataContext.SaveChangesAsync();
+        }
+
+        public Task<Client> GetById(string id)
+        {
+            return dataContext.Clients.FirstAsync(c => c.Id == id);
+        }
+
+        public async Task Update(Client client)
+        {
+            dataContext.Clients.Update(client);
+            await dataContext.SaveChangesAsync();
+        }
+
+        /*
         private readonly DataContext dataContext;
         private readonly IEmailRepository emailRepository;
         private readonly IDocumentRepository documentRepository;
@@ -57,7 +83,7 @@ namespace api.Repositories
             existingClient.PhoneNumber = client.PhoneNumber;
 
             await dataContext.SaveChangesAsync();
-        }
+        }*/
     }
 }
 

@@ -1,14 +1,13 @@
-﻿using System;
-using api.Utilities;
+﻿using CarePatron.Infrastructure.Utilities;
 
-namespace api.Repositories
+namespace CarePatron.ClientManagement.Infrastructure
 {
-    public interface IDocumentRepository
+    public interface IDocumentService
     {
         Task SyncDocumentsFromExternalSource(string email);
     }
 
-    public class DocumentRepository : IDocumentRepository
+    public class DocumentService : IDocumentService
     {
         public async Task SyncDocumentsFromExternalSource(string _)
         {
@@ -22,4 +21,3 @@ namespace api.Repositories
         }
     }
 }
-

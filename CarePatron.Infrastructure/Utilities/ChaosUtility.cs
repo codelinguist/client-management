@@ -1,5 +1,5 @@
 ﻿using System;
-namespace api.Utilities
+namespace CarePatron.Infrastructure.Utilities
 {
     public static class ChaosUtility
     {

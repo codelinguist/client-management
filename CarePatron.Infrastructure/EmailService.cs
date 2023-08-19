@@ -1,16 +1,18 @@
-using api.Data;
-using api.Models;
-using api.Utilities;
-using Microsoft.EntityFrameworkCore;
+﻿using CarePatron.Infrastructure.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace api.Repositories
+namespace CarePatron.Infrastructure
 {
-    public interface IEmailRepository
+    public interface IEmailService
     {
         Task Send(string email, string message);
     }
 
-    public class EmailRepository : IEmailRepository
+    public class EmailService : IEmailService
     {
         public async Task Send(string _, string __)
         {
@@ -24,4 +26,3 @@ namespace api.Repositories
         }
     }
 }
-
