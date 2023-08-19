@@ -1,4 +1,6 @@
-## How to run the application
+[TOC]
+
+# How to run the application
 In new terminal Go to /CarePatron.Api/
 - dotnet restore
 - dotnet build
@@ -9,8 +11,12 @@ In new terminal Go to /CarePatron.Api/
 2. Open Postman and import the collection
 2. Run the requests
 
-## What could have I done further if I had more time?
-First of all, I was only able to work on this on Monday and Saturday midnights because of my current working schedule, the PowerBI classes I'm taking and other committments I had during the week. If I had more time on this, I could have:
+# How long did it take? 
+I was only able to work on this on Monday and Saturday midnights because of my current working schedule, the PowerBI classes I'm taking and other committments I had during the week. It's approximately 12hrs which include the architecture review, the coding and this writeup.
+
+# What could have I done further if I had more time?
+
+First of all, If I had more time on this, I could have:
 1. Implemented thorough unit and integration tests
 2. API Test automations in Postman
 3. Imlemented more scenarios to further demonstrate the pattern.
