@@ -15,7 +15,6 @@
     <Folder Include="AutomatedWorkflows\" />
     <Folder Include="Calls\" />
     <Folder Include="Billing\" />
-    <Folder Include="Team\" />
   </ItemGroup>
 
   <ItemGroup>
