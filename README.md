@@ -93,5 +93,9 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
     - handles logging
     - resolves needed request context data.
     - returns the expected response
-- This is where 
-- With Vertical Slice Architecture, the application operations are organized by use cases.
+- This is where **readability**, **traceability** and long-term **maintainability** are more important than reusability, hear me out:
+    - Between the use cases, you may see DTOs or ViewModels that have common properties. This does not mean you need to create a base class that will define all of the common properties for them to inherit. Unless there is a business value in doing so, keep those use cases separate.
+    - Another example, you should not reuse an api to get clients for Clients grid in a Clients dropdown functionality.
+    - I can explain how this would lead to bad development experience sooner than we think.
+    - **Basically, not all things that look similar are the same.**
+- With [Vertical Slice Architecture](https://www.jimmybogard.com/vertical-slice-architecture/), the application operations are organized by use cases.
