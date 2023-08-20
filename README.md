@@ -98,4 +98,18 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
     - Another example, you should not reuse an api to get clients for Clients grid in a Clients dropdown functionality.
     - I can explain how this would lead to bad development experience sooner than we think.
     - **Basically, not all things that look similar are the same.**
-- With [Vertical Slice Architecture](https://www.jimmybogard.com/vertical-slice-architecture/), the application operations are organized by use cases.
+- With [Vertical Slice Architecture](https://www.jimmybogard.com/vertical-slice-architecture/), the application operations are organized by FRONTEND use cases. In this sample app,
+    - Clients Page:
+        -  SearchClients
+        -  AddClient
+        -  EditClient
+        -  SetAsVIP
+    -  Contacts Page
+        - SearchContacts
+        - AddContact
+        - EditContact
+        - DeleteContact
+    - Your Team Page
+        - SearchMembers
+        - AddMember
+        - RemoveMember
