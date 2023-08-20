@@ -14,11 +14,11 @@ In new terminal Go to /CarePatron.Api/
 # Responses
 
 ### How long did it take? 
-I was only able to work on this on Monday and Saturday midnights because of my current working schedule, the PowerBI classes I'm taking and other committments I had during the week. It's approximately 12hrs which include the architecture review, the coding and this writeup.
+I was only able to work on this on Monday and Saturday midnights because of my current working schedule, the PowerBI classes I'm taking and other committments I had during the week. It's approximately 12hrs which include the architecture review, coding and this writeup.
 
 ### What could have I done further if I had more time?
 
-First of all, If I had more time on this, I could have:
+If I had more time on this, I could have:
 1. Implemented thorough unit and integration tests
 2. API Test automations in Postman
 3. Imlemented more scenarios to further demonstrate the pattern.
@@ -53,7 +53,7 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
 
 ### The Narrative
 - We developers prioritize reusability and smaller lines of code at the expense of readability, traceability and long-term maintainability. We fail to recognize that there are certain layers in our application where the latter three qualities are paramount.
-- When developing APIs, we sometimes fail to recognize that there should be a clear distinction between APIs built for frontend and APIs built for public consumption. This results into API endpoints that have conflicting purposes and exposing unnecessary data points.
+- When developing APIs, we sometimes fail to recognize that there should be a clear distinction between APIs built for frontend and APIs built for public consumption. This results into API endpoints that have multiple conflicting objectives and exposing unnecessary data points.
 
 ### Architectural Vision
 - A highly functionally cohesive application where areas in the application have minimal to no direct or indirect dependencies from each other.
