@@ -64,20 +64,19 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
 - An architecture with *well-managed complexity* such that we recognize the *bounded contexts* wherein capabilities and its boundaries are well-defined.
 - An API with a clear and specific purpose which is to serve the frontend functionalities.
 
-## The layers
+## Architectural Layer Overview
 
-#### Clean Architecture
+### Clean Architecture
 ![alt-text](./README/clean-arch.png)
 
-#### Layer bottom-up dependency and the types of objects they define.
+### Layer bottom-up dependency and the types of objects they define.
 ![alt-text](./README/Layers.png)
 
-#### Vertical Slice Architecture for functional cohesion.
+### Vertical Slice Architecture for functional cohesion.
 ![alt-text](./README/cm-layers.png)
 
-### Domain Layer
-
-[Screenshot here]
+## Domain Layer
+![alt-text](./README/domain-layer.png)
 
 - This is where domain logic lives.
 - Where logic reusability is paramount.
@@ -91,14 +90,15 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
 - Strategic Pattern Applied
     - Bounded Context
 
-#### Vertical Slice Architecture
 
+## Infrastructure Layer
 
-### Infrastructure Layer
+![alt-text](./README/infrastructure-layer.png)
 - This is where external service interfaces, helpers, subscribers and publishers are defined.
 - Is aware of domain layer
 
-### Application Layer
+## Application Layer
+![alt-text](./README/application-layer.png)
 - Is aware of both Domain and Infrastructure Layers
 - Manages the application logic
     - invokes the creation, persistence and/or retrieval of entities
@@ -110,7 +110,7 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
 - This is where **readability**, **traceability** and long-term **maintainability** are more important than reusability, hear me out:
     - Between the use cases, you may see DTOs or ViewModels that have common properties. This does not mean you need to create a base class that will define all of the common properties for them to inherit. Unless there is a business value in doing so, keep those use cases separate.
     - Another example, you should not reuse an api to get clients for Clients grid in a Clients dropdown functionality.
-    - I can explain how this would lead to bad development experience sooner than we think.
+    - I can explain how opting for reusability and smaller lines of code would lead to bad development experience sooner than we think.
     - **Basically, not all things that look similar are the same.**
 - With [Vertical Slice Architecture](https://www.jimmybogard.com/vertical-slice-architecture/), the application operations are organized by FRONTEND use cases. In this sample app:
     - Clients Page:
