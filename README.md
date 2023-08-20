@@ -24,6 +24,7 @@ If I had more time on this, I could have:
 3. Imlemented more scenarios to further demonstrate the pattern.
 4. Provided diagrams and documentations to illustrate the architecture I applied. I should be able to provide these on the next (technical) interview.
 5. Implemented better validation patterns, Envelope pattern and proper HTTP response codes according to the result.
+6. Illustrated scenarios as to how this can be gradually transformed into a microservice architecture.
 
 ### Quality and best practices
 Patterns and Practices Applied
@@ -61,7 +62,15 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
 - An API with a clear and specific purpose which is to serve the frontend functionalities.
 
 ## The layers
-[Clean Architecture screenshot here]
+
+#### Clean Architecture
+![alt-text](./README/clean-arch.png)
+
+#### Layer bottom-up dependency and the types of objects they define.
+![alt-text](./README/Layers.png)
+
+#### Vertical Slice Architecture for functional cohesion.
+![alt-text](./README/cm-layers.png)
 
 ### Domain Layer
 
@@ -78,6 +87,8 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
     - **Repositories** - an abstraction of entity's persistence and retrieval.
 - Strategic Pattern Applied
     - Bounded Context
+
+#### Vertical Slice Architecture
 
 
 ### Infrastructure Layer
@@ -98,7 +109,7 @@ I would write Unit/Integration and API Tests and setup a CI/CD pipeline to run t
     - Another example, you should not reuse an api to get clients for Clients grid in a Clients dropdown functionality.
     - I can explain how this would lead to bad development experience sooner than we think.
     - **Basically, not all things that look similar are the same.**
-- With [Vertical Slice Architecture](https://www.jimmybogard.com/vertical-slice-architecture/), the application operations are organized by FRONTEND use cases. In this sample app,
+- With [Vertical Slice Architecture](https://www.jimmybogard.com/vertical-slice-architecture/), the application operations are organized by FRONTEND use cases. In this sample app:
     - Clients Page:
         -  SearchClients
         -  AddClient

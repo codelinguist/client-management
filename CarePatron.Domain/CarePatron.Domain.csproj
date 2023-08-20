@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\Analytics\" />
     <Folder Include="Model\AutomatedWorkflows\" />
+    <Folder Include="Model\Billing\" />
     <Folder Include="Model\OnlineScheduling\" />
   </ItemGroup>
 
