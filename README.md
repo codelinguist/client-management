@@ -1,5 +1,3 @@
-[TOC]
-
 # Run the Application
 In new terminal Go to /CarePatron.Api/
 - dotnet restore
@@ -31,6 +29,11 @@ Patterns and Practices Applied
 1. [Vertical Slice Architecture](https://www.jimmybogard.com/vertical-slice-architecture/)
 2. [Clean Architecture Layers](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 3. [Domain-Driven Design](https://martinfowler.com/bliki/DomainDrivenDesign.html)
+4. [Test-Driven Development](https://www.geeksforgeeks.org/test-driven-development-tdd/)
+5. [Command-Query Separation](https://khalilstemmler.com/articles/oop-design-principles/command-query-separation/)
+6. [SOLID Design Principles](https://principles.design/examples/solid-design-principles)
+
+See the [Architecture](#Architecture) section below.
 
 ### Can this architecture easily scale to a codebase with 20 Developers?
 Absolutely. With the Vertical Slice Architecture, the things that are used together, are placed together in one place. For instance, if one developer updates the EditClient functionality, he/she can ensure that other functionalities are NOT using or reusing any classes or methods that are in that use case. It's also very easy to find related things because you can find them just within the same file or namespace.
