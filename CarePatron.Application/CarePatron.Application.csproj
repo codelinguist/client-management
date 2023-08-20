@@ -16,7 +16,6 @@
     <Folder Include="Calls\" />
     <Folder Include="Billing\" />
     <Folder Include="Team\" />
-    <Folder Include="OnlineScheduling\" />
   </ItemGroup>
 
   <ItemGroup>
