@@ -36,7 +36,7 @@ Patterns and Practices Applied
 See the [Architecture](#Architecture) section below.
 
 ### Can this architecture easily scale to a codebase with 20 Developers?
-Absolutely. With the Vertical Slice Architecture, the things that are used together, are placed together in one place. For instance, if one developer updates the EditClient functionality, he/she can ensure that other functionalities are NOT using or reusing any classes or methods that are in that use case. It's also very easy to find related things because you can find them just within the same file or namespace.
+Absolutely. With the Vertical Slice Architecture, the things that are used together, are put together in one place. For instance, if one developer updates the EditClient functionality, he/she can ensure that other functionalities are NOT using or reusing any classes or methods that are in that use case. It's also very easy to find related things because you can find them just within the same file or namespace.
 
 Therefore, there is high cohesion between use case implementations, which also translates to high cohesion between developers working on this project.
 
