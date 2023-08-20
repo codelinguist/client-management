@@ -39,5 +39,13 @@ namespace CarePatron.API.Controllers
             var response = await mediator.Send(query);
             return Ok(response);
         }
+
+
+        [HttpPut("SetAsVIP")]
+        public async Task<IActionResult> SetAsVIP([FromBody] SetAsVIP.Command query)
+        {
+            var response = await mediator.Send(query);
+            return Ok(response);
+        }
     }
 }

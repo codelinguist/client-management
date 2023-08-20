@@ -1,4 +1,6 @@
-﻿using CarePatron.Domain.Model.ClientManagement;
+﻿using CarePatron.ClientManagement.Infrastructure;
+using CarePatron.Domain.Model.ClientManagement;
+using CarePatron.Infrastructure;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -36,10 +38,14 @@ namespace CarePatron.ClientManagement.Application
         public class Handler : IRequestHandler<Command, Response>
         {
             private readonly IClientRepository repository;
+            private readonly IEmailService emailService;
+            private readonly IDocumentService documentService;
 
-            public Handler(IClientRepository repository)
+            public Handler(IClientRepository repository, IEmailService emailService, IDocumentService documentService)
             {
                 this.repository = repository;
+                this.emailService = emailService;
+                this.documentService = documentService;
             }
             public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
             {
@@ -47,9 +53,21 @@ namespace CarePatron.ClientManagement.Application
 
                 Client client = await repository.GetById(request.Id);
 
+                if (client == null)
+                {
+                    return new Response { Success = false, ValidationErrors = new string[] { "Client does not exist." } };
+                }
+
+                var previousContactInfo = client.ContactInformation;
                 client.EditInformation(request.FirstName, request.LastName, request.ContactInformation);
 
                 await repository.Update(client);
+
+                if (previousContactInfo.Email != client.ContactInformation.Email && client.ContactInformation.HasEmail)
+                {
+                    await emailService.Send(client.ContactInformation.Email!, "Hi there - welcome to my Carepatron portal.");
+                    await documentService.SyncDocumentsFromExternalSource(client.ContactInformation.Email!);
+                }
                 return new Response { Success = true };
             }
         }
